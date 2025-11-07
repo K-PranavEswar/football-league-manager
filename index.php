@@ -215,66 +215,284 @@ $season_complete = ($active_round === null && $schedule_count > 0);
     <title><?php echo htmlspecialchars($league_name); ?> - League Manager</title>
     <link rel="stylesheet" href="assets/bootstrap.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f4f7f6;
-        }
-        .league-container {
-            max-width: 1000px;
-            margin: 2rem auto;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-            /* Fix for mobile overflow: table will scroll inside .league-body */
-        }
-        .league-header { 
-            padding: 1.5rem 2rem; 
-            border-bottom: 1px solid #e9ecef; 
-        }
-        /* Mobile responsive controls */
-        .league-controls { 
-            padding: 1rem 1.5rem; 
-            background-color: #fafbfd; 
-            border-bottom: 1px solid #e9ecef; 
-            display: flex; 
-            gap: 0.75rem; 
-            justify-content: center; 
-            flex-wrap: wrap; /* Allows buttons to wrap */
-        }
-        .league-controls .btn, .league-controls form {
-            flex-grow: 1; /* Allow buttons to grow */
-            flex-basis: 150px; /* Base size */
-            display: flex; /* Ensure form wraps button */
-        }
-        .league-controls .btn {
-            width: 100%; /* Make buttons fill the flex item */
-        }
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    
+    :root {
+        --fuchsia-accent: #c81482; /* A pink/fuchsia from the image */
+        --fuchsia-accent-hover: #d81b8f;
+        --purple-accent: #8e44ad; /* A purple closer to the image */
+        --purple-accent-hover: #9b59b6;
         
-        .league-body { 
-            padding: 0.5rem; 
-            /* This is the fix for mobile tables */
-            overflow-x: auto; 
-        }
-        .table { 
-            border-collapse: separate; 
-            border-spacing: 0; 
-            margin-bottom: 0; 
-            min-width: 700px; /* Force table to be wide */
-        }
-        .table thead th { background-color: #343a40; color: #ffffff; border: 0; font-weight: 600; text-transform: uppercase; font-size: 0.75rem; }
-        .table tbody tr:hover { background-color: #f8f9fa; }
-        .table td, .table th { vertical-align: middle; border-top: 1px solid #e9ecef; }
-        .table thead th:first-child { border-top-left-radius: 6px; }
-        .table thead th:last-child { border-top-right-radius: 6px; }
-        .table tbody tr:last-child td:first-child { border-bottom-left-radius: 6px; }
-        .table tbody tr:last-child td:last-child { border-bottom-right-radius: 6px; }
-        .table .pos-cell { min-width: 50px; }
-        /* Position styling */
-        .table tbody tr:nth-child(1) .pos-cell { background-color: rgba(25, 135, 84, 0.1); font-weight: 700; color: #198754; }
-        .table tbody tr:nth-child(2) .pos-cell { background-color: rgba(13, 110, 253, 0.1); font-weight: 700; color: #0d6efd; }
-        .table tbody tr:nth-child(3) .pos-cell { background-color: rgba(13, 202, 240, 0.1); font-weight: 700; color: #0dcaf0; }
-    </style>
+        --text-primary: #f5f5f5;
+        --text-secondary: #b0b0b0;
+        
+        /* Background colors */
+        --bg-container: rgba(20, 10, 30, 0.75); /* Dark semi-transparent purple */
+        --bg-header: rgba(20, 10, 30, 0.85);
+        --bg-controls: rgba(10, 5, 20, 0.8);
+        
+        /* Border */
+        --border-light: rgba(255, 255, 255, 0.1);
+        --border-medium: rgba(255, 255, 255, 0.2);
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        color: var(--text-primary);
+        
+        /* --- THIS IS THE NEW BACKGROUND --- */
+        /* Replace 'https://source.unsplash.com/1600x900/?stadium,lights,night' 
+           with your own image path like 'assets/stadium_bg.jpg'
+        */
+        background-image: linear-gradient(45deg, rgba(50, 0, 80, 0.9), rgba(120, 20, 100, 0.85)), url('https://source.unsplash.com/1600x900/?stadium,lights,night');
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed; /* Makes the background stay in place */
+        min-height: 100vh;
+    }
+
+    .league-container {
+        max-width: 1000px;
+        margin: 2rem auto;
+        background-color: var(--bg-container);
+        border-radius: 12px;
+        border: 1px solid var(--border-light);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        
+        /* "Frosted glass" effect like the image */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    .league-header { 
+        padding: 1.5rem 2rem; 
+        border-bottom: 1px solid var(--border-light); 
+        background-color: var(--bg-header); /* Slightly more opaque */
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
+    
+    .league-controls { 
+        padding: 1rem 1.5rem; 
+        background-color: var(--bg-controls); 
+        border-bottom: 1px solid var(--border-light); 
+        display: flex; 
+        gap: 0.75rem; 
+        justify-content: center; 
+        flex-wrap: wrap; 
+    }
+    .league-controls .btn, .league-controls form {
+        flex-grow: 1; 
+        flex-basis: 150px; 
+        display: flex; 
+    }
+    .league-controls .btn {
+        width: 100%; 
+    }
+    
+    .league-body { 
+        padding: 0.5rem; 
+        overflow-x: auto; 
+    }
+    
+    /* --- Table Styles --- */
+    .table { 
+        border-collapse: separate; 
+        border-spacing: 0; 
+        margin-bottom: 0; 
+        min-width: 700px; 
+        color: var(--text-primary); 
+    }
+    .table thead th { 
+        background-color: transparent; /* No solid background */
+        border: 0;
+        border-bottom: 2px solid var(--border-medium); /* Subtle bottom border */
+        color: var(--text-primary); 
+        font-weight: 600; 
+        text-transform: uppercase; 
+        font-size: 0.75rem; 
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    .table tbody tr {
+        border-bottom: 1px solid var(--border-light); /* Subtle border between rows */
+    }
+    .table tbody tr:last-child {
+        border-bottom: none; /* No border for the last row */
+    }
+    .table tbody tr:hover { 
+        background-color: rgba(255, 255, 255, 0.05); /* Light hover effect */
+    }
+    .table td { 
+        vertical-align: middle; 
+        border-top: none; /* Remove individual cell top borders */
+        padding: 0.75rem 0.5rem; /* Adjust padding for spacing */
+    }
+    
+    /* Removed specific border-radius for table head cells to align with new design */
+    .table thead th:first-child { border-top-left-radius: 0; }
+    .table thead th:last-child { border-top-right-radius: 0; }
+    .table tbody tr:last-child td:first-child { border-bottom-left-radius: 6px; }
+    .table tbody tr:last-child td:last-child { border-bottom-right-radius: 6px; }
+    
+    .table .pos-cell { 
+        min-width: 50px; 
+        padding-left: 1rem; /* Add some padding to the position cell */
+    }
+    
+    /* Position styling (Brighter for dark BG) */
+    .table tbody tr:nth-child(1) .pos-cell { 
+        background-color: rgba(40, 167, 69, 0.25); 
+        font-weight: 700; 
+        color: #28a745; 
+        border-radius: 4px; /* Slightly rounded corners for the highlight */
+    }
+    .table tbody tr:nth-child(2) .pos-cell { 
+        background-color: rgba(59, 130, 246, 0.25); 
+        font-weight: 700; 
+        color: #3b82f6; 
+        border-radius: 4px;
+    }
+    .table tbody tr:nth-child(3) .pos-cell { 
+        background-color: rgba(34, 211, 238, 0.25); 
+        font-weight: 700; 
+        color: #22d3ee; 
+        border-radius: 4px;
+    }
+
+    /* --- Button Overrides (Vibrant Purple/Fuchsia) --- */
+    .btn-primary {
+        background-color: var(--fuchsia-accent);
+        border-color: var(--fuchsia-accent);
+        color: #ffffff;
+        font-weight: 500;
+    }
+    .btn-primary:hover {
+        background-color: var(--fuchsia-accent-hover);
+        border-color: var(--fuchsia-accent-hover);
+        color: #ffffff;
+    }
+    .btn-success { /* Generate Schedule */
+        background-color: #28a745; /* Green */
+        border-color: #28a745;
+        color: #ffffff;
+        font-weight: 500;
+    }
+     .btn-success:hover {
+        background-color: #218838;
+        border-color: #1e7e34;
+    }
+    .btn-info { /* View Schedule */
+        background-color: #17a2b8; /* Cyan */
+        border-color: #17a2b8;
+        color: #ffffff;
+        font-weight: 500;
+    }
+    .btn-info:hover {
+        background-color: #138496;
+        border-color: #117a8b;
+    }
+    .btn-warning { /* Generate Playoffs */
+        background-color: #ffc107; /* Yellow */
+        border-color: #ffc107;
+        color: #212529; /* Dark text for light button */
+        font-weight: 700; /* Bold as it's an important action */
+    }
+    .btn-warning:hover {
+        background-color: #e0a800;
+        border-color: #d39e00;
+    }
+    .btn-danger { /* Reset League */
+        background-color: #dc3545; /* Red */
+        border-color: #dc3545;
+        color: #ffffff;
+        font-weight: 500;
+    }
+    .btn-danger:hover {
+        background-color: #c82333;
+        border-color: #bd2130;
+    }
+
+    .btn-outline-secondary {
+        color: var(--text-secondary);
+        border-color: var(--border-medium);
+    }
+    .btn-outline-secondary:hover {
+        background-color: var(--border-medium);
+        color: var(--text-primary);
+    }
+
+    /* --- Modal Dark Theme --- */
+    .modal-content {
+        background-color: rgba(30, 20, 40, 0.9);
+        border: 1px solid var(--border-light);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        color: var(--text-primary);
+    }
+    .modal-header {
+        border-bottom: 1px solid var(--border-light);
+    }
+    .modal-footer {
+        border-top: 1px solid var(--border-light);
+    }
+    .btn-close {
+        filter: invert(1) grayscale(100%) brightness(200%);
+    }
+
+    /* --- Form Input Dark Theme --- */
+    .form-control {
+        background-color: rgba(0, 0, 0, 0.2);
+        color: var(--text-primary);
+        border: 1px solid var(--border-medium);
+    }
+    .form-control:focus {
+        background-color: rgba(0, 0, 0, 0.3);
+        color: var(--text-primary);
+        border-color: var(--fuchsia-accent);
+        box-shadow: 0 0 0 0.25rem rgba(200, 20, 130, 0.3);
+    }
+    .form-control::placeholder {
+        color: #888;
+    }
+
+    /* --- Alert Dark Theme --- */
+    .alert { 
+        border-width: 0; 
+        border-left: 5px solid;
+        background-color: rgba(30, 30, 30, 0.7);
+        backdrop-filter: blur(5px);
+    }
+    .alert-success {
+        color: #6ee7b7;
+        border-color: #1e4d3a;
+    }
+    .alert-warning {
+        color: #fde047;
+        border-color: #4d4d1e;
+    }
+    .alert-danger {
+        color: #fca5a5;
+        border-color: #4d1e1e;
+    }
+    .alert-info {
+        color: #7dd3fc;
+        border-color: #0c4a6e;
+    }
+    .alert .btn-close {
+        filter: none;
+    }
+
+    /* --- Striped Table (for Schedule Modal) --- */
+    .table-striped > tbody > tr:nth-of-type(odd) > * {
+        background-color: rgba(255, 255, 255, 0.05);
+        color: var(--text-primary);
+    }
+     .table-striped > tbody > tr:nth-of-type(even) > * {
+        background-color: transparent;
+        color: var(--text-primary);
+    }
+</style>
 </head>
 <body>
 

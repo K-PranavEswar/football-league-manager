@@ -1,4 +1,4 @@
-# 🏆 Football League Manager
+# 🏆 Efootball League Manager
 
 A fully functional **Football League Manager Web App** built using **PHP, MySQL, and Bootstrap**.  
 This application allows users to create new leagues, add teams, generate round-robin fixtures, update match results, and automatically calculate league standings and playoffs.

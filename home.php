@@ -80,7 +80,8 @@ if ($leagues_result) {
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f4f7f6;
+            background: url('assets/msn.jpg') no-repeat center center fixed;
+            background-size: cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -92,10 +93,11 @@ if ($leagues_result) {
             max-width: 500px;
             width: 100%;
             padding: 2.5rem;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.9); /* translucent white for contrast */
             border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
             text-align: center;
+            backdrop-filter: blur(6px);
         }
         .form-divider {
             display: flex;
@@ -120,11 +122,14 @@ if ($leagues_result) {
         footer {
             text-align: center;
             margin-top: 2rem;
-            color: #888;
+            color: #eee;
             font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
         }
         footer a {
-            color: #0d6efd;
+            color: #0dcaf0;
             text-decoration: none;
         }
         footer a:hover {
@@ -135,7 +140,7 @@ if ($leagues_result) {
 <body>
     <div class="manager-container">
         <h2 class="mb-3">🏆</h2>
-        <h2 class="h3 mb-4 fw-bold">Football League Manager</h2>
+        <h2 class="h3 mb-4 fw-bold">Efootball League Manager</h2>
 
         <?php if (isset($message)): ?>
             <div class="alert alert-success"><?php echo $message; ?></div>
@@ -184,7 +189,7 @@ if ($leagues_result) {
         <p>© <?php echo date('Y'); ?> Football League Manager. All rights reserved.</p>
         <p class="mb-0">
             Designed by <a href="https://www.linkedin.com/in/k-pranav-eswar1/" target="_blank">Pranav Eswar</a> | 
-            <span class="text-muted">Version 1.0</span>
+            <span class="text-light">Version 1.0</span>
         </p>
     </footer>
 
