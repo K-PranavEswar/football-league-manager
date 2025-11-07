@@ -68,8 +68,6 @@ football-league/
 <br><br>
 <img width="1918" height="902" alt="image" src="https://github.com/user-attachments/assets/4d1c7f08-6880-4f2c-ba61-b9d6d708c5df" />
 <br><br>
-<img width="1897" height="903" alt="image" src="https://github.com/user-attachments/assets/1242a93e-d713-47ff-9a52-6f54f89d7d5d" />
-<br><br>
 <img width="1900" height="857" alt="image" src="https://github.com/user-attachments/assets/2657cc02-b507-4785-ba96-e5feccf77a20" />
 <br><br>
 <img width="1915" height="910" alt="image" src="https://github.com/user-attachments/assets/87bc692f-d78b-44af-8c23-855a151b4f56" />
