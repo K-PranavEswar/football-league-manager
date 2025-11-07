@@ -75,15 +75,6 @@ football-league/
 <img width="1915" height="910" alt="image" src="https://github.com/user-attachments/assets/87bc692f-d78b-44af-8c23-855a151b4f56" />
 <br><br>
 <img width="1897" height="432" alt="image" src="https://github.com/user-attachments/assets/670a0c47-a7a6-4d4f-bf69-4e95c7fe39af" />
-
-
-
-
-
-
-
-> Example: Home page, League Table, Schedule Modal, Add Team Popup
-
 ---
 
 ## 👨‍💻 Developed By
