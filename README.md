@@ -60,7 +60,8 @@ football-league/
 ---
 
 ## 📸 Screenshots
-> Add screenshots of your app UI here  
+<img width="1917" height="916" alt="image" src="https://github.com/user-attachments/assets/009083d7-41fd-4c71-8ed6-7286b3023c31" />
+
 > Example: Home page, League Table, Schedule Modal, Add Team Popup
 
 ---
