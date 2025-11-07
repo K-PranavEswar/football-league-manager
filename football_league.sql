@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2025 at 05:39 PM
+-- Generation Time: Nov 07, 2025 at 06:48 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -65,66 +65,36 @@ CREATE TABLE `matches` (
 --
 
 INSERT INTO `matches` (`id`, `league_name`, `round_number`, `home_team_id`, `away_team_id`, `home_goals`, `away_goals`, `match_played`, `is_playoff`, `winner_team_id`) VALUES
-(1, '', 1, 11, 8, 0, 0, 0, 0, NULL),
-(2, '', 1, 10, 9, 0, 0, 0, 0, NULL),
-(3, '', 1, 7, 12, 0, 0, 0, 0, NULL),
-(4, '', 2, 11, 7, 0, 0, 0, 0, NULL),
-(5, '', 2, 8, 9, 0, 0, 0, 0, NULL),
-(6, '', 2, 10, 12, 0, 0, 0, 0, NULL),
-(7, '', 3, 10, 7, 0, 0, 0, 0, NULL),
-(8, '', 3, 11, 9, 0, 0, 0, 0, NULL),
-(9, '', 3, 12, 8, 0, 0, 0, 0, NULL),
-(10, '', 4, 7, 9, 0, 0, 0, 0, NULL),
-(11, '', 4, 11, 12, 0, 0, 0, 0, NULL),
-(12, '', 4, 8, 10, 0, 0, 0, 0, NULL),
-(13, '', 5, 10, 11, 0, 0, 0, 0, NULL),
-(14, '', 5, 7, 8, 0, 0, 0, 0, NULL),
-(15, '', 5, 12, 9, 0, 0, 0, 0, NULL),
-(16, '', 6, 8, 11, 0, 0, 0, 0, NULL),
-(17, '', 6, 9, 10, 0, 0, 0, 0, NULL),
-(18, '', 6, 12, 7, 0, 0, 0, 0, NULL),
-(19, '', 7, 7, 11, 0, 0, 0, 0, NULL),
-(20, '', 7, 9, 8, 0, 0, 0, 0, NULL),
-(21, '', 7, 12, 10, 0, 0, 0, 0, NULL),
-(22, '', 8, 7, 10, 0, 0, 0, 0, NULL),
-(23, '', 8, 9, 11, 0, 0, 0, 0, NULL),
-(24, '', 8, 8, 12, 0, 0, 0, 0, NULL),
-(25, '', 9, 9, 7, 0, 0, 0, 0, NULL),
-(26, '', 9, 12, 11, 0, 0, 0, 0, NULL),
-(27, '', 9, 10, 8, 0, 0, 0, 0, NULL),
-(28, '', 10, 11, 10, 0, 0, 0, 0, NULL),
-(29, '', 10, 8, 7, 0, 0, 0, 0, NULL),
-(30, '', 10, 9, 12, 0, 0, 0, 0, NULL),
-(31, 'SEASON 2', 1, 12, 7, 0, 0, 0, 0, NULL),
-(32, 'SEASON 2', 1, 8, 11, 0, 0, 0, 0, NULL),
-(33, 'SEASON 2', 1, 10, 9, 0, 0, 0, 0, NULL),
-(34, 'SEASON 2', 2, 11, 7, 0, 0, 0, 0, NULL),
-(35, 'SEASON 2', 2, 10, 12, 0, 0, 0, 0, NULL),
-(36, 'SEASON 2', 2, 8, 9, 0, 0, 0, 0, NULL),
-(37, 'SEASON 2', 3, 10, 7, 0, 0, 0, 0, NULL),
-(38, 'SEASON 2', 3, 9, 11, 0, 0, 0, 0, NULL),
-(39, 'SEASON 2', 3, 12, 8, 0, 0, 0, 0, NULL),
-(40, 'SEASON 2', 4, 9, 7, 0, 0, 0, 0, NULL),
-(41, 'SEASON 2', 4, 10, 8, 0, 0, 0, 0, NULL),
-(42, 'SEASON 2', 4, 12, 11, 0, 0, 0, 0, NULL),
-(43, 'SEASON 2', 5, 7, 8, 0, 0, 0, 0, NULL),
-(44, 'SEASON 2', 5, 12, 9, 0, 0, 0, 0, NULL),
-(45, 'SEASON 2', 5, 11, 10, 0, 0, 0, 0, NULL),
-(46, 'SEASON 2', 6, 7, 12, 0, 0, 0, 0, NULL),
-(47, 'SEASON 2', 6, 11, 8, 0, 0, 0, 0, NULL),
-(48, 'SEASON 2', 6, 9, 10, 0, 0, 0, 0, NULL),
-(49, 'SEASON 2', 7, 7, 11, 0, 0, 0, 0, NULL),
-(50, 'SEASON 2', 7, 12, 10, 0, 0, 0, 0, NULL),
-(51, 'SEASON 2', 7, 9, 8, 0, 0, 0, 0, NULL),
-(52, 'SEASON 2', 8, 7, 10, 0, 0, 0, 0, NULL),
-(53, 'SEASON 2', 8, 11, 9, 0, 0, 0, 0, NULL),
-(54, 'SEASON 2', 8, 8, 12, 0, 0, 0, 0, NULL),
-(55, 'SEASON 2', 9, 7, 9, 0, 0, 0, 0, NULL),
-(56, 'SEASON 2', 9, 8, 10, 0, 0, 0, 0, NULL),
-(57, 'SEASON 2', 9, 11, 12, 0, 0, 0, 0, NULL),
-(58, 'SEASON 2', 10, 8, 7, 0, 0, 0, 0, NULL),
-(59, 'SEASON 2', 10, 9, 12, 0, 0, 0, 0, NULL),
-(60, 'SEASON 2', 10, 10, 11, 0, 0, 0, 0, NULL);
+(151, 'SEASON 2', 1, 22, 27, 0, 0, 0, 0, NULL),
+(152, 'SEASON 2', 1, 23, 26, 0, 0, 0, 0, NULL),
+(153, 'SEASON 2', 1, 25, 24, 0, 0, 0, 0, NULL),
+(154, 'SEASON 2', 2, 22, 26, 0, 0, 0, 0, NULL),
+(155, 'SEASON 2', 2, 27, 25, 0, 0, 0, 0, NULL),
+(156, 'SEASON 2', 2, 23, 24, 0, 0, 0, 0, NULL),
+(157, 'SEASON 2', 3, 22, 25, 0, 0, 0, 0, NULL),
+(158, 'SEASON 2', 3, 26, 24, 0, 0, 0, 0, NULL),
+(159, 'SEASON 2', 3, 27, 23, 0, 0, 0, 0, NULL),
+(160, 'SEASON 2', 4, 24, 22, 0, 0, 0, 0, NULL),
+(161, 'SEASON 2', 4, 23, 25, 0, 0, 0, 0, NULL),
+(162, 'SEASON 2', 4, 27, 26, 0, 0, 0, 0, NULL),
+(163, 'SEASON 2', 5, 23, 22, 0, 0, 0, 0, NULL),
+(164, 'SEASON 2', 5, 27, 24, 0, 0, 0, 0, NULL),
+(165, 'SEASON 2', 5, 25, 26, 0, 0, 0, 0, NULL),
+(166, 'SEASON 2', 6, 27, 22, 0, 0, 0, 0, NULL),
+(167, 'SEASON 2', 6, 26, 23, 0, 0, 0, 0, NULL),
+(168, 'SEASON 2', 6, 24, 25, 0, 0, 0, 0, NULL),
+(169, 'SEASON 2', 7, 26, 22, 0, 0, 0, 0, NULL),
+(170, 'SEASON 2', 7, 25, 27, 0, 0, 0, 0, NULL),
+(171, 'SEASON 2', 7, 24, 23, 0, 0, 0, 0, NULL),
+(172, 'SEASON 2', 8, 25, 22, 0, 0, 0, 0, NULL),
+(173, 'SEASON 2', 8, 24, 26, 0, 0, 0, 0, NULL),
+(174, 'SEASON 2', 8, 23, 27, 0, 0, 0, 0, NULL),
+(175, 'SEASON 2', 9, 22, 24, 0, 0, 0, 0, NULL),
+(176, 'SEASON 2', 9, 25, 23, 0, 0, 0, 0, NULL),
+(177, 'SEASON 2', 9, 26, 27, 0, 0, 0, 0, NULL),
+(178, 'SEASON 2', 10, 22, 23, 0, 0, 0, 0, NULL),
+(179, 'SEASON 2', 10, 24, 27, 0, 0, 0, 0, NULL),
+(180, 'SEASON 2', 10, 26, 25, 0, 0, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -150,12 +120,12 @@ CREATE TABLE `teams` (
 --
 
 INSERT INTO `teams` (`id`, `name`, `league_name`, `played`, `won`, `drawn`, `lost`, `goals_for`, `goals_against`, `points`) VALUES
-(7, 'ARGENTINA', 'SEASON 2', 0, 0, 0, 0, 0, 0, 0),
-(8, 'NETHERLANDS', 'SEASON 2', 0, 0, 0, 0, 0, 0, 0),
-(9, 'SPAIN', 'SEASON 2', 0, 0, 0, 0, 0, 0, 0),
-(10, 'PORTUGAL', 'SEASON 2', 0, 0, 0, 0, 0, 0, 0),
-(11, 'FRANCE', 'SEASON 2', 0, 0, 0, 0, 0, 0, 0),
-(12, 'ENGLAND', 'SEASON 2', 0, 0, 0, 0, 0, 0, 0);
+(22, 'SPAIN', 'SEASON 2', 0, 0, 0, 0, 0, 0, 0),
+(23, 'ARGENTINA', 'SEASON 2', 0, 0, 0, 0, 0, 0, 0),
+(24, 'NETHERLANDS', 'SEASON 2', 0, 0, 0, 0, 0, 0, 0),
+(25, 'FRANCE', 'SEASON 2', 0, 0, 0, 0, 0, 0, 0),
+(26, 'ENGLAND', 'SEASON 2', 0, 0, 0, 0, 0, 0, 0),
+(27, 'PORTUGAL', 'SEASON 2', 0, 0, 0, 0, 0, 0, 0);
 
 --
 -- Indexes for dumped tables
@@ -196,13 +166,13 @@ ALTER TABLE `leagues`
 -- AUTO_INCREMENT for table `matches`
 --
 ALTER TABLE `matches`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=181;
 
 --
 -- AUTO_INCREMENT for table `teams`
 --
 ALTER TABLE `teams`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Constraints for dumped tables
