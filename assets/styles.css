@@ -1,0 +1,101 @@
+/* assets/style.css */
+
+/* Use a modern, clean font */
+@import url('httpshttps://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f7f6; /* Light, neutral background */
+}
+
+.league-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    overflow: hidden; /* Ensures border-radius contains the table */
+}
+
+.league-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #e9ecef;
+    background-color: #fafbfd;
+}
+
+.league-header h2 {
+    margin: 0;
+    font-weight: 700;
+    color: #333;
+}
+
+.league-controls {
+    padding: 1.5rem 2rem;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.league-body {
+    padding: 0.5rem;
+}
+
+/* Table styling */
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 0; /* Remove default bottom margin */
+}
+
+.table thead th {
+    background-color: #343a40;
+    color: #ffffff;
+    border: 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+}
+
+/* Style the top 3 positions */
+.table tbody tr:nth-child(1) .pos-cell {
+    background-color: rgba(25, 135, 84, 0.1); /* Green tint */
+    font-weight: 700;
+    color: #198754;
+}
+.table tbody tr:nth-child(2) .pos-cell {
+    background-color: rgba(13, 110, 253, 0.1); /* Blue tint */
+    font-weight: 700;
+    color: #0d6efd;
+}
+.table tbody tr:nth-child(3) .pos-cell {
+    background-color: rgba(13, 202, 240, 0.1); /* Cyan tint */
+    font-weight: 700;
+    color: #0dcaf0;
+}
+
+.table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.table td, .table th {
+    vertical-align: middle;
+    border-top: 1px solid #e9ecef;
+}
+
+/* First/Last child for clean border-radius */
+.table thead th:first-child {
+    border-top-left-radius: 6px;
+}
+.table thead th:last-child {
+    border-top-right-radius: 6px;
+}
+.table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 6px;
+}
+.table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 6px;
+}
